@@ -1,0 +1,37 @@
+dev_directory: F:/DATAS/DCASE2021Task2ASD/development/
+eval_directory: ../eval_data
+model_directory: ./run/dcase2021ae
+result_directory: ./result
+run_save_dir: "../run/CVAE2020/"
+result_file: result.csv
+
+max_fpr : 0.1
+decision_threshold: 0.9
+num_class: 23
+model:
+  input_dim: 128
+  input_length: 288
+  start_scheduler_epoch: 5
+  weight_decay: !!float 1e-5
+  scheduler: 'WarmupCosineSchedulerLR'
+  min_lr: !!float 5e-5
+  max_lr: 0.001
+  warmup_epoch: 5
+
+feature:
+  sample_rate: 16000
+  wav_length: 147000
+  n_mels: 128
+  n_frames: 5
+  n_hop_frames: 1
+  n_fft: 1024
+  hop_length: 512
+  power: 2.0
+
+fit:
+  lr: 0.001
+  epochs: 80
+  batch_size: 64
+  shuffle: True
+  validation_split: 0.1
+  verbose: 1
