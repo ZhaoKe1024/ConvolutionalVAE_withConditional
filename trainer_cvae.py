@@ -17,12 +17,11 @@ import torch
 import torch.optim as optim
 from torch.utils.data import DataLoader
 
-from asddskit.datautils.featurizer import get_a_wavmel_sample
-from asddskit.datautils.utils_dcase2021 import select_dirs
-from asddskit.models.cvae_conv import ConvCVAE, vae_loss
-from asddskit.models.model_settings import get_model
-from asddskit.utils.utils import setup_seed, load_ckpt
-from asddskit.datautils.reader_dcase2020 import SpecAllReader
+from featurizer import get_a_wavmel_sample
+from cvae_conv import ConvCVAE, vae_loss
+from model_settings import get_model
+from utils import setup_seed, load_ckpt
+from reader_dcase2020 import SpecAllReader, select_dirs
 
 
 def get_wavmel_settings(data_file, m2l_map, configs=None, mode="train", demo_test=False):

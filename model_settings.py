@@ -6,16 +6,15 @@
 # @Software: PyCharm
 import torch
 
-from asddskit.models.cvae_conv import ConvCVAE
-from asddskit.models.vae_conv import ConvVAE
-from asddskit.utils.utils import load_ckpt
+from cvae_conv import ConvCVAE
+from utils import load_ckpt
 
 
 def get_model(use_model, configs, istrain=True, params=None):
     model = None
     if use_model == "vae":
-        model = ConvVAE(input_channel=1, input_length=configs["model"]["input_length"],
-                        input_dim=configs["feature"]["n_mels"], conditional=False, num_labels=0)
+        model = ConvCVAE(input_channel=1, input_length=configs["model"]["input_length"],
+                         input_dim=configs["feature"]["n_mels"], conditional=False, num_labels=0)
     if use_model == "cvae":
         model = ConvCVAE(input_channel=1, input_length=configs["model"]["input_length"],
                          input_dim=configs["feature"]["n_mels"], **params)
