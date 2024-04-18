@@ -8,6 +8,8 @@ Each piece of data is a 10s audio, converted to MelSpectrogram, the shape is (12
 
 # VAE
 
+It's very important to set parameters as follow: Adam learning rate: 0.001, kl_weight=0.00025, scheduler.CosineAnnealing(t_max=5)
+
 ```text
 self.model = get_model("cvae", configs=self.configs, istrain=True,
                                params={"latent_dim": self.latent_dim, "conditional": False, "num_labels": 6}).to(self.device)
