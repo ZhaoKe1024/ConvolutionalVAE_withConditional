@@ -11,8 +11,14 @@ self.model = get_model("cvae", configs=self.configs, istrain=True,
 ```
 
 Run
-
+```commandline
 python trainer_cvae.py
+```
+run trainer will create a save dictionary as "./run/VAE/{datetime}/" to save model and reconstructed mel spectrogram.
+
+Reconstruction Result of VAE:
+
+![](result_vae.png)
 
 # Conditional VAE
 
@@ -20,3 +26,6 @@ python trainer_cvae.py
 self.model = get_model("cvae", configs=self.configs, istrain=True,
                                params={"latent_dim": self.latent_dim, "conditional": True, "num_labels": self.class_num}).to(self.device)
 ```
+Reconstruction Result of ConditionalVAE:
+
+![](result_cvae.png)
