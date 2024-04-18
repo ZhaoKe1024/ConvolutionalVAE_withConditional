@@ -15,6 +15,8 @@ class ConvCVAE(nn.Module):
         self.latent_dim = latent_dim
         self.latent_w = input_length // 8 - 3
         self.latent_h = input_dim // 8 - 3
+        if not conditional:
+            num_labels = 0
         print("latent shape:", self.latent_dim, self.latent_w, self.latent_h)
         self.encoder = ConvVAEEncoder(input_channel=input_channel,
                                       input_length=input_length,
