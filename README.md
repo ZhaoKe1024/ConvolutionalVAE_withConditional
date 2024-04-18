@@ -1,7 +1,10 @@
+[English](./README.md) | [简体中文](README_cn.md)
+
 # ConvolutionalVAE_withConditional
+This repository provides the implementation of Convolutional VAE and conditional variational autoencoders.
 
-This Repository provides Convolutional VAE (Variational AutoEncoder) implements, and Convolutional Conditional VAE.
-
+### Dataset：DCASE2020 contraining 20000 waveform
+Each piece of data is a 10s audio, converted to MelSpectrogram, the shape is (128, 288), and the model input is (batch_size, 1, 288, 128).
 
 # VAE
 
